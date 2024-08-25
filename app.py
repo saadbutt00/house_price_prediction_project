@@ -4,9 +4,9 @@ import numpy as np
 import pickle
 
 # Define file paths
-model_path = 'F:/MyProject/house price prediction/lr_model.pkl'
-encoder_path = 'F:/MyProject/house price prediction/label_encoders.pkl'
-scaler_path = 'F:/MyProject/house price prediction/scaler.pkl'
+model_path = 'lr_model.pkl'
+encoder_path = 'label_encoders.pkl'
+scaler_path = 'scaler.pkl'
 
 # Load the trained model, label encoders, and scaler
 with open(model_path, 'rb') as model_file:
@@ -74,5 +74,3 @@ predicted_price = int(np.exp(predicted_log_price)[0])
 # Display the predicted price
 st.write(f"### Predicted Price")
 st.write(f"💲 {predicted_price:,.2f}")
-
-# streamlit run "F:\MyProject\house price prediction\app.py"
