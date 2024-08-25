@@ -15,18 +15,44 @@ lc = r'F:/MyProject/house price prediction/le_city.pkl'
 lec = r'F:/MyProject/house price prediction/le_country.pkl'
 s = r'F:/MyProject/house price prediction/scaler.pkl'
 
+# Debugging: Print file paths
+st.write(f"Model file path: {lrm}")
+st.write(f"City LabelEncoder file path: {lc}")
+st.write(f"Country LabelEncoder file path: {lec}")
+st.write(f"Scaler file path: {s}")
+
 # Loading the model, encoders, and scaler
-with open(lrm, 'rb') as model_file:
-    loaded_model = pkl.load(model_file)
+try:
+    with open(lrm, 'rb') as model_file:
+        loaded_model = pkl.load(model_file)
+except FileNotFoundError as e:
+    st.error(f"File not found: {lrm}")
+    st.error(e)
+    st.stop()
 
-with open(lc, 'rb') as le_city_file:
-    loaded_le_city = pkl.load(le_city_file)
+try:
+    with open(lc, 'rb') as le_city_file:
+        loaded_le_city = pkl.load(le_city_file)
+except FileNotFoundError as e:
+    st.error(f"File not found: {lc}")
+    st.error(e)
+    st.stop()
 
-with open(lec, 'rb') as le_country_file:
-    loaded_le_country = pkl.load(le_country_file)
+try:
+    with open(lec, 'rb') as le_country_file:
+        loaded_le_country = pkl.load(le_country_file)
+except FileNotFoundError as e:
+    st.error(f"File not found: {lec}")
+    st.error(e)
+    st.stop()
 
-with open(s, 'rb') as scaler_file:
-    loaded_scaler = pkl.load(scaler_file)
+try:
+    with open(s, 'rb') as scaler_file:
+        loaded_scaler = pkl.load(scaler_file)
+except FileNotFoundError as e:
+    st.error(f"File not found: {s}")
+    st.error(e)
+    st.stop()
 
 # Sidebar for user input
 st.sidebar.header('User Input Features')
