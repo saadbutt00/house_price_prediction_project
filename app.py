@@ -9,10 +9,11 @@ st.set_page_config(page_title="House Price Prediction", page_icon="🏠", layout
 # Title of the app
 st.title('House Price Prediction App 🏠')
 
-lrm = 'lr_model.pkl'
-lc = 'le_city.pkl'
-lec = 'le_country.pkl'
-s = 'scaler.pkl'
+# File paths (use raw strings to handle backslashes correctly)
+lrm = r'F:/MyProject/house price prediction/lr_model.pkl'
+lc = r'F:/MyProject/house price prediction/le_city.pkl'
+lec = r'F:/MyProject/house price prediction/le_country.pkl'
+s = r'F:/MyProject/house price prediction/scaler.pkl'
 
 # Loading the model, encoders, and scaler
 with open(lrm, 'rb') as model_file:
