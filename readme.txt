@@ -18,3 +18,5 @@ Technologies Used
 - Scikit-Learn: For machine learning and data preprocessing.
 - Pickle: For saving and loading the trained model and encoders.
 
+To open this app, use this link:
+https://house-price-prediction-waf.streamlit.app/
