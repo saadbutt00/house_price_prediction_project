@@ -10,33 +10,17 @@ st.set_page_config(page_title="House Price Prediction", page_icon="🏠", layout
 st.title('House Price Prediction App 🏠')
 
 # File paths (use raw strings to handle backslashes correctly)
-lrm = r'F:/MyProject/house price prediction/lr_model.pkl'
-lc = r'F:/MyProject/house price prediction/le_city.pkl'
-lec = r'F:/MyProject/house price prediction/le_country.pkl'
-s = r'F:/MyProject/house price prediction/scaler.pkl'
-
-# Debugging: Print file paths
-st.write(f"Model file path: {lrm}")
-st.write(f"City LabelEncoder file path: {lc}")
-st.write(f"Country LabelEncoder file path: {lec}")
-st.write(f"Scaler file path: {s}")
+lrm = r'lr_model.pkl'
+lc = r'le_city.pkl'
+lec = r'le_country.pkl'
+s = r'scaler.pkl'
 
 # Loading the model, encoders, and scaler
-try:
-    with open(lrm, 'rb') as model_file:
-        loaded_model = pkl.load(model_file)
-except FileNotFoundError as e:
-    st.error(f"File not found: {lrm}")
-    st.error(e)
-    st.stop()
+with open(lrm, 'rb') as model_file:
+    loaded_model = pkl.load(model_file)
 
-try:
-    with open(lc, 'rb') as le_city_file:
-        loaded_le_city = pkl.load(le_city_file)
-except FileNotFoundError as e:
-    st.error(f"File not found: {lc}")
-    st.error(e)
-    st.stop()
+with open(lc, 'rb') as le_city_file:
+    loaded_le_city = pkl.load(le_city_file)
 
 try:
     with open(lec, 'rb') as le_country_file:
