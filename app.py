@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import pickle as pkl
-import os
 
 # Set dark theme
 st.set_page_config(page_title="House Price Prediction", page_icon="🏠", layout="wide", initial_sidebar_state="expanded")
@@ -11,18 +10,18 @@ st.set_page_config(page_title="House Price Prediction", page_icon="🏠", layout
 st.title('House Price Prediction App 🏠')
 
 # Load the pre-trained model, label encoders, and scaler using pickle
-with open(os.path.join('F:/MyProject/house price prediction/', 'lr_model.pkl'), 'rb') as model_file:
+with open('lr_model.pkl', 'rb') as model_file:
     model = pkl.load(model_file)
 
-with open(os.path.join('F:/MyProject/house price prediction/', 'le_city.pkl'), 'rb') as le_city_file:
+with open('le_city.pkl', 'rb') as le_city_file:
     le_city = pkl.load(le_city_file)
 
-with open(os.path.join('F:/MyProject/house price prediction/', 'le_country.pkl'), 'rb') as le_country_file:
+with open('le_country.pkl', 'rb') as le_country_file:
     le_country = pkl.load(le_country_file)
 
-with open(os.path.join('F:/MyProject/house price prediction/', 'scaler.pkl'), 'rb') as scaler_file:
+with open('scaler.pkl', 'rb') as scaler_file:
     scaler = pkl.load(scaler_file)
-
+    
 # Sidebar for user input
 st.sidebar.header('User Input Features')
 
